@@ -33,7 +33,7 @@ const validateEndAfterStart = (startRef: string, fieldName: string) => {
         const startDate = this.resolve(yup.ref(startRef));
         if (!startDate || !endDate) return true; // Let required validation handle missing values
         // End date/time must be strictly greater than start date/time
-        return endDate.getTime() > startDate.getTime();
+        return endDate.getTime() > (startDate as Date).getTime();
       }
     );
 };
@@ -173,7 +173,7 @@ const AcademicYearConfig: React.FC = () => {
         : new Date(currentYear + 1, 4, 15),
       plagiarism_threshold: activeYear?.plagiarism_threshold || 25,
       max_supervisor_load: activeYear?.max_supervisor_load || 10,
-      is_active: activeYear?.is_active === true || activeYear?.is_active === 1 || activeYear?.is_active === '1' || (activeYear === undefined ? true : false),
+      is_active: activeYear?.is_active === true || (activeYear?.is_active as unknown) === 1 || (activeYear?.is_active as unknown) === '1' || (activeYear === undefined ? true : false),
     },
     validationSchema,
     enableReinitialize: true,
@@ -279,7 +279,7 @@ const AcademicYearConfig: React.FC = () => {
                     textField: { 
                       fullWidth: true,
                       error: formik.touched.topic_submission_start && Boolean(formik.errors.topic_submission_start),
-                      helperText: formik.touched.topic_submission_start && formik.errors.topic_submission_start
+                      helperText: formik.touched.topic_submission_start && (formik.errors.topic_submission_start as string | undefined)
                     } 
                   }}
                 />
@@ -293,7 +293,7 @@ const AcademicYearConfig: React.FC = () => {
                     textField: { 
                       fullWidth: true,
                       error: formik.touched.topic_submission_end && Boolean(formik.errors.topic_submission_end),
-                      helperText: formik.touched.topic_submission_end && formik.errors.topic_submission_end
+                      helperText: formik.touched.topic_submission_end && (formik.errors.topic_submission_end as string | undefined)
                     } 
                   }}
                 />
@@ -323,7 +323,7 @@ const AcademicYearConfig: React.FC = () => {
                       textField: { 
                         fullWidth: true,
                         error: formik.touched.alpha_deadline_start && Boolean(formik.errors.alpha_deadline_start),
-                        helperText: formik.touched.alpha_deadline_start && formik.errors.alpha_deadline_start
+                        helperText: formik.touched.alpha_deadline_start && (formik.errors.alpha_deadline_start as string | undefined)
                       } 
                     }}
                   />
@@ -337,7 +337,7 @@ const AcademicYearConfig: React.FC = () => {
                       textField: { 
                         fullWidth: true,
                         error: formik.touched.alpha_deadline_end && Boolean(formik.errors.alpha_deadline_end),
-                        helperText: formik.touched.alpha_deadline_end && formik.errors.alpha_deadline_end
+                        helperText: formik.touched.alpha_deadline_end && (formik.errors.alpha_deadline_end as string | undefined)
                       } 
                     }}
                   />
@@ -360,7 +360,7 @@ const AcademicYearConfig: React.FC = () => {
                       textField: { 
                         fullWidth: true,
                         error: formik.touched.beta_deadline_start && Boolean(formik.errors.beta_deadline_start),
-                        helperText: formik.touched.beta_deadline_start && formik.errors.beta_deadline_start
+                        helperText: formik.touched.beta_deadline_start && (formik.errors.beta_deadline_start as string | undefined)
                       } 
                     }}
                   />
@@ -374,7 +374,7 @@ const AcademicYearConfig: React.FC = () => {
                       textField: { 
                         fullWidth: true,
                         error: formik.touched.beta_deadline_end && Boolean(formik.errors.beta_deadline_end),
-                        helperText: formik.touched.beta_deadline_end && formik.errors.beta_deadline_end
+                        helperText: formik.touched.beta_deadline_end && (formik.errors.beta_deadline_end as string | undefined)
                       } 
                     }}
                   />
@@ -397,7 +397,7 @@ const AcademicYearConfig: React.FC = () => {
                       textField: { 
                         fullWidth: true,
                         error: formik.touched.final_deadline_start && Boolean(formik.errors.final_deadline_start),
-                        helperText: formik.touched.final_deadline_start && formik.errors.final_deadline_start
+                        helperText: formik.touched.final_deadline_start && (formik.errors.final_deadline_start as string | undefined)
                       } 
                     }}
                   />
@@ -411,7 +411,7 @@ const AcademicYearConfig: React.FC = () => {
                       textField: { 
                         fullWidth: true,
                         error: formik.touched.final_deadline_end && Boolean(formik.errors.final_deadline_end),
-                        helperText: formik.touched.final_deadline_end && formik.errors.final_deadline_end
+                        helperText: formik.touched.final_deadline_end && (formik.errors.final_deadline_end as string | undefined)
                       } 
                     }}
                   />
@@ -436,7 +436,7 @@ const AcademicYearConfig: React.FC = () => {
                     textField: { 
                       fullWidth: true,
                       error: formik.touched.presentation_start && Boolean(formik.errors.presentation_start),
-                      helperText: formik.touched.presentation_start && formik.errors.presentation_start
+                      helperText: formik.touched.presentation_start && (formik.errors.presentation_start as string | undefined)
                     } 
                   }}
                 />
@@ -450,7 +450,7 @@ const AcademicYearConfig: React.FC = () => {
                     textField: { 
                       fullWidth: true,
                       error: formik.touched.presentation_end && Boolean(formik.errors.presentation_end),
-                      helperText: formik.touched.presentation_end && formik.errors.presentation_end
+                      helperText: formik.touched.presentation_end && (formik.errors.presentation_end as string | undefined)
                     } 
                   }}
                 />

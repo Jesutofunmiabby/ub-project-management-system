@@ -43,6 +43,8 @@ interface StudentDashboard {
     submission_type: string;
     status: string;
     deadline: string;
+    submission_start_date?: string | null;
+    submission_end_date?: string | null;
     submitted_at: string | null;
     file_path: string | null;
     marks: number | null;

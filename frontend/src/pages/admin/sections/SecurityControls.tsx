@@ -17,7 +17,7 @@ import {
   MenuItem,
   Grid,
 } from '@mui/material';
-import { Block as BlockIcon, CheckCircle as UnblockIcon } from '@mui/icons-material';
+import { CheckCircle as UnblockIcon } from '@mui/icons-material';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSnackbar } from 'notistack';
 import { adminAPI } from '../../../services/api';
@@ -38,14 +38,6 @@ const SecurityControls: React.FC = () => {
         action_type: actionFilter || undefined,
       });
       return response.data.data;
-    },
-  });
-
-  const blockMutation = useMutation({
-    mutationFn: (id: string) => adminAPI.blockUser(id),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['securityLogs'] });
-      enqueueSnackbar('User blocked successfully', { variant: 'success' });
     },
   });
 

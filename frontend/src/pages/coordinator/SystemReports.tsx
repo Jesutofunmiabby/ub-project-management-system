@@ -18,8 +18,6 @@ import {
   PieChart,
   Pie,
   Cell,
-  LineChart,
-  Line,
 } from 'recharts';
 import { useQuery } from '@tanstack/react-query';
 import { gradesAPI, coordinatorAPI } from '../../services/api';

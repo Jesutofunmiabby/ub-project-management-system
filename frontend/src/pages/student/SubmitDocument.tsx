@@ -15,7 +15,6 @@ import {
   CloudUpload as UploadIcon,
   InsertDriveFile as FileIcon,
   CheckCircle as CheckIcon,
-  Warning as WarningIcon,
 } from '@mui/icons-material';
 import { useDropzone } from 'react-dropzone';
 import { useSnackbar } from 'notistack';
@@ -56,7 +55,6 @@ const SubmitDocument: React.FC = () => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [uploadProgress, setUploadProgress] = useState(0);
 
   // Get submission info or create a default for unknown types
   const info = type ? (submissionInfo[type] || {
@@ -81,7 +79,7 @@ const SubmitDocument: React.FC = () => {
       const response = await submissionsAPI.upload(submission.id, file);
       return response.data;
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       enqueueSnackbar('Document uploaded successfully!', { variant: 'success' });
       navigate('/student/dashboard');
     },

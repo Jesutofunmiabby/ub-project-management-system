@@ -10,7 +10,6 @@ import {
 import {
   People as PeopleIcon,
   Assignment as AssignmentIcon,
-  Warning as WarningIcon,
   Security as SecurityIcon,
 } from '@mui/icons-material';
 import { useQuery } from '@tanstack/react-query';
@@ -73,8 +72,8 @@ const DashboardOverview: React.FC = () => {
             <Card
               sx={{
                 background: (theme) =>
-                  `linear-gradient(135deg, ${alpha(theme.palette[stat.color as keyof typeof theme.palette].main, 0.1)} 0%, ${alpha(theme.palette[stat.color as keyof typeof theme.palette].main, 0.05)} 100%)`,
-                border: (theme) => `1px solid ${alpha(theme.palette[stat.color as keyof typeof theme.palette].main, 0.2)}`,
+                  `linear-gradient(135deg, ${alpha(theme.palette[stat.color as 'primary'].main, 0.1)} 0%, ${alpha(theme.palette[stat.color as 'primary'].main, 0.05)} 100%)`,
+                border: (theme) => `1px solid ${alpha(theme.palette[stat.color as 'primary'].main, 0.2)}`,
               }}
             >
               <CardContent>

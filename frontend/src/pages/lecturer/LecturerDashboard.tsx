@@ -23,12 +23,11 @@ import {
   Groups as GroupsIcon,
   Grade as GradeIcon,
   Event as EventIcon,
-  TrendingUp as TrendingUpIcon,
   Assignment as AssignmentIcon,
   Download as DownloadIcon,
 } from '@mui/icons-material';
 import { useQuery } from '@tanstack/react-query';
-import { format, formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 import { dashboardAPI } from '../../services/api';
 import { LecturerDashboard as LecturerDashboardType } from '../../types';
 
@@ -391,7 +390,7 @@ const LecturerDashboard: React.FC = () => {
                               onClick={(e) => {
                                 e.stopPropagation();
                                 handleDownload(
-                                  submission.file_path,
+                                  submission.file_path as string,
                                   submission.file_name,
                                   `${submission.student_first_name}_${submission.student_last_name}`,
                                   submission.submission_type

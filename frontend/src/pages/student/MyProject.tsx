@@ -16,7 +16,6 @@ import {
 import {
   Person as PersonIcon,
   Email as EmailIcon,
-  CalendarToday as CalendarIcon,
 } from '@mui/icons-material';
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';

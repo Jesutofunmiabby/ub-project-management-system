@@ -22,8 +22,8 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useSnackbar } from 'notistack';
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { projectsAPI } from '../../services/api';
-import { AvailableLecturer } from '../../types';
+import { dashboardAPI, projectsAPI } from '../../services/api';
+import { AvailableLecturer, StudentDashboard } from '../../types';
 
 const steps = ['Project Details', 'Review Similar Projects', 'Supervisor Selection', 'Review & Submit'];
 
@@ -67,7 +67,7 @@ const ProjectSubmission: React.FC = () => {
   const [isCheckingSimilarity, setIsCheckingSimilarity] = useState(false);
 
   // Get current project to check if this is a resubmission
-  const { data: dashboard } = useQuery({
+  const { data: dashboard } = useQuery<StudentDashboard>({
     queryKey: ['studentDashboard'],
     queryFn: async () => {
       const response = await dashboardAPI.getStudentDashboard();
@@ -85,7 +85,7 @@ const ProjectSubmission: React.FC = () => {
 
   const submitMutation = useMutation({
     mutationFn: (data: any) => projectsAPI.create(data),
-    onSuccess: (response) => {
+    onSuccess: () => {
       const message = isResubmission 
         ? 'Project proposal resubmitted successfully!' 
         : 'Project proposal submitted successfully!';
@@ -455,7 +455,7 @@ const ProjectSubmission: React.FC = () => {
               Similar Projects
             </Typography>
 
-            {similarProjects.map((project, index) => (
+            {similarProjects.map((project) => (
               <Card key={project.id} sx={{ mb: 2, border: '1px solid', borderColor: 'divider' }}>
                 <CardContent>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>

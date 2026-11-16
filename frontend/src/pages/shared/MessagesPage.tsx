@@ -12,7 +12,6 @@ import {
   ListItemText,
   Avatar,
   Divider,
-  Badge,
   InputAdornment,
   alpha,
 } from '@mui/material';

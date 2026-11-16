@@ -15,7 +15,6 @@ import {
 import {
   People as PeopleIcon,
   Assignment as AssignmentIcon,
-  CheckCircle as CheckCircleIcon,
   TrendingUp as TrendingUpIcon,
   Schedule as ScheduleIcon,
   CompareArrows as CompareArrowsIcon,

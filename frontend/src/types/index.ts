@@ -157,6 +157,7 @@ export interface AcademicYearConfig {
   final_deadline_start?: string;
   final_deadline_end?: string;
   max_supervisor_load: number;
+  plagiarism_threshold?: number;
   is_active: boolean;
 }
 

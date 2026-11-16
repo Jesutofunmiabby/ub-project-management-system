@@ -9,7 +9,6 @@ import {
   Card,
   CardContent,
   Stack,
-  useTheme,
   alpha,
 } from '@mui/material';
 import {
@@ -17,8 +16,6 @@ import {
   Assignment as AssignmentIcon,
   Group as GroupIcon,
   Timeline as TimelineIcon,
-  Security as SecurityIcon,
-  Speed as SpeedIcon,
   CloudUpload as CloudUploadIcon,
   Assessment as AssessmentIcon,
 } from '@mui/icons-material';
@@ -59,7 +56,6 @@ const stats = [
 ];
 
 const HomePage: React.FC = () => {
-  const theme = useTheme();
 
   return (
     <Box

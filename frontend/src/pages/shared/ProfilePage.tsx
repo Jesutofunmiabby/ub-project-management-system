@@ -9,12 +9,9 @@ import {
   Grid,
   Avatar,
   Divider,
-  Alert,
   CircularProgress,
-  alpha,
 } from '@mui/material';
 import {
-  Person as PersonIcon,
   Email as EmailIcon,
   Phone as PhoneIcon,
   School as SchoolIcon,

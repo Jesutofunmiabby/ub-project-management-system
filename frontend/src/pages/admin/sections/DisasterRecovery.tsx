@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Card,
@@ -26,7 +26,6 @@ import { adminAPI } from '../../../services/api';
 const DisasterRecovery: React.FC = () => {
   const { enqueueSnackbar } = useSnackbar();
   const queryClient = useQueryClient();
-  const [restoreBackupId, setRestoreBackupId] = useState('');
 
   const { data: backups } = useQuery({
     queryKey: ['backups'],

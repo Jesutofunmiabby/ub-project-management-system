@@ -36,7 +36,6 @@ import {
   CheckCircle as CheckIcon,
   Person as PersonIcon,
   Visibility as VisibilityIcon,
-  SelectAll as SelectAllIcon,
   Lock as LockIcon,
 } from '@mui/icons-material';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';

@@ -116,7 +116,7 @@ const RegisterPage: React.FC = () => {
           registerData.department = department;
         }
         
-        await register(registerData);
+        await register(registerData as unknown as Parameters<typeof register>[0]);
       } catch (err: any) {
         setError(err.response?.data?.message || err.message || 'Registration failed. Please try again.');
       } finally {

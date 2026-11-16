@@ -98,7 +98,7 @@ export const getUsers = async (req: AuthRequest, res: Response): Promise<void> =
     
     if (is_active !== undefined) {
       whereClause += ' AND is_active = ?';
-      const isActiveBool = is_active === 'true' || is_active === true;
+      const isActiveBool = String(is_active) === 'true';
       params.push(isActiveBool);
       countParams.push(isActiveBool);
     }
