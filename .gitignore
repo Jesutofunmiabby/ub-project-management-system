@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Environment files (keep the example)
+.env
+.env.*
+!.env.example
+
+# Uploaded files (keep the folder)
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# AI tool configuration
+CLAUDE.md
+.claude/
+.cursor/
+.cursorrules
+.cursorignore
+.windsurf/
+.windsurfrules
+.codeium/
+.copilot/
+.github/copilot-instructions.md
+.aider*
+.continue/
+AGENTS.md
+GEMINI.md
